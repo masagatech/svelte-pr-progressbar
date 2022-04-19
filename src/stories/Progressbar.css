@@ -1,0 +1,177 @@
+        .progressbar-holder {
+            display: inline-block;
+            width: 100%;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .progressbar-text {
+            display: flex;
+            align-items: center;
+            width: 2em;
+            margin-left: 8px;
+            color: #000000d9;
+            font-size: 1em;
+            line-height: 1;
+            font-size: 12px;
+            white-space: nowrap;
+            text-align: left;
+            vertical-align: middle;
+            word-break: normal;
+        }
+        
+        .progressbar-outer {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            overflow: hidden;
+            vertical-align: middle;
+            background-color: #f5f5f5;
+            border-radius: 100px;
+        }
+        
+        .progressbar-segments {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .progressbar-innersegment {
+            margin-right: calc(-2em - 8px);
+            padding-right: calc(2em + 8px);
+            display: inline-block;
+            width: 100%;
+            margin-right: 0;
+            padding-right: 0;
+        }
+        
+        .progressbar-inner {
+            min-width: 0%;
+            min-height: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 0px;
+            border-radius: 100px;
+            -webkit-transition: width 1s ease-in-out;
+            -moz-transition: width 1s ease-in-out;
+            -o-transition: width 1s ease-in-out;
+            transition: width 1s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .progressbar-inner.active:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            border-radius: 10px;
+            opacity: 0;
+            animation: ant-progress-active 2.4s cubic-bezier(.23, 1, .32, 1) infinite;
+            content: "";
+        }
+        
+        @keyframes ant-progress-active {
+            0% {
+                transform: translate(-100%) scaleX(0);
+                opacity: .1
+            }
+            20% {
+                transform: translate(-100%) scaleX(0);
+                opacity: 1
+            }
+            to {
+                transform: translate(0) scaleX(1);
+                opacity: 0
+            }
+        }
+        
+        .progressbar-outer .indeterminate:before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: "";
+            background-color: inherit;
+            -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+            animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+            will-change: left, right
+        }
+        
+        .progressbar-outer .indeterminate:after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: "";
+            background-color: inherit;
+            -webkit-animation: indeterminate 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+            animation: indeterminate 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+            -webkit-animation-delay: 1.15s;
+            animation-delay: 1.15s;
+            will-change: left, right
+        }
+        
+        @-webkit-keyframes indeterminate {
+            0% {
+                right: 100%;
+                left: -35%
+            }
+            60% {
+                right: -90%;
+                left: 100%
+            }
+            100% {
+                right: -90%;
+                left: 100%
+            }
+        }
+        
+        @keyframes indeterminate {
+            0% {
+                right: 100%;
+                left: -35%
+            }
+            60% {
+                right: -90%;
+                left: 100%
+            }
+            100% {
+                right: -90%;
+                left: 100%
+            }
+        }
+        
+        @-webkit-keyframes indeterminate-short {
+            0% {
+                right: 100%;
+                left: -200%
+            }
+            60% {
+                right: -8%;
+                left: 107%
+            }
+            100% {
+                right: -8%;
+                left: 107%
+            }
+        }
+        
+        @keyframes indeterminate-short {
+            0% {
+                right: 100%;
+                left: -200%
+            }
+            60% {
+                right: -8%;
+                left: 107%
+            }
+            100% {
+                right: -8%;
+                left: 107%
+            }
+        }
